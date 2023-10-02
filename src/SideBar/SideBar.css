@@ -1,0 +1,44 @@
+.sideCont{
+height: 100vh;
+margin: 0;
+padding-top: 1rem ;
+box-shadow: 2px 2px 2px #c4c4c4;
+
+
+}
+.sideCont .navLinks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    row-gap: 20px;
+    padding: 1.5rem;
+}
+.sideCont .navLinks li{
+    list-style-type: none;
+}
+.sideCont .navLinks li a{
+    text-decoration: none;
+    font-size: 22px;
+    color: #000;
+}
+.sideCont .navLinks li a img{
+    width: 24px;
+    height: 24px;
+
+}
+.blueNacCircle{
+    width: 32px;
+    height: 32px;
+    background-color: #1D4ED8;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}

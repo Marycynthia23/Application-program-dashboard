@@ -1,0 +1,26 @@
+.inputCont{
+width: 100%;
+}
+label{
+
+}
+.input,
+.inputthree{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ededed;
+    margin: 0.75rem 0;
+    outline: none;
+}
+.threefields{
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ededed;
+}
+.switch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,67 @@
+.layoutCont{
+    overflow: auto;
+    position: relative;
+    /* background: #fff; */
+    width: 98vw;
+}
+.headertop{
+width: 100%;
+padding: 3rem 0;
+background-color: #fff;
+position: fixed;
+
+z-index: 200;
+
+
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 2px #c4c4c4;
+    padding: 0 2rem ;
+    margin: 2.5rem 0;
+    position: fixed;
+    z-index: 200;
+    width: 85%;
+}
+
+.header li{
+    padding: 2rem 5rem;
+    list-style-type: none;
+    /* margin: 0 0.5rem ; */
+    
+}
+.notactive a{
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+}
+.active a{
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+
+}
+.active {
+    background: #00635B;
+    margin: 0;
+}
+.bl{
+    border-right: 1px solid #c4c4c4;
+}
+.triangle {
+    width: 0px;
+    height: 0px;
+    transform: rotate(90deg);
+    border-left: 10px solid transparent; /* Adjust the size of the triangle by changing the border width */
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #00635B;
+    margin-left: 0; }  
+  
+  
+  
+  
+  
+  

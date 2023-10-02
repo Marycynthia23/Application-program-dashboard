@@ -1,0 +1,95 @@
+.card{
+width: 596px;
+min-height: 408px;
+padding-bottom: 1rem;
+box-shadow: rgba(0, 0, 0, 0.1);
+background: #fff;
+border-radius: 20px;
+font-family: 'Poppins', sans-serif;
+}
+.title{
+padding: 0.5rem 0.5rem;
+border-bottom: 1px solid #ededed;
+background-color: #D0F7FA;
+color: #000;
+border-radius: 20px 20px 0 0;
+font-size: 25px;
+font-weight: 600;
+padding: 10px 20px;
+
+}
+.card{
+    box-shadow: 5px 5px 5px #c4c4c4;
+}
+.cardBody{
+    padding: 10px 20px; 
+}
+.addQuestionBtn{
+    display: flex;
+    align-self: center;
+    column-gap: 8px;
+    padding: 1rem 0;
+    cursor: pointer;
+}
+.inputCont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    }
+    label{
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 1rem;
+    }
+    .inputQues{
+        width: 509px;
+        height: 48px;
+        margin: 0.75rem 0;
+        padding: 0 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .textarea{
+        width: 87%;
+        border-radius: 5px;
+        padding: 10px;
+
+    }
+    .videoLimits{
+        width: 89%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .inputMax{
+        width: 45%;
+        height: 48px;
+        margin: 0.75rem 0;
+        padding: 0 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .delandSaveCont{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .Delete{
+        color: #A80000;
+        cursor: pointer;
+
+    }
+    .save{
+        color: #fff;
+        background: #087B2F;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .Question{
+        display: flex;
+        /* justify-content: space-around; */
+        align-items: center;
+        flex-direction: column;
+        
+    }
