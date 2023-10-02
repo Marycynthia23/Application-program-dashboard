@@ -10,6 +10,7 @@ const AdditionalQuestions = () => {
   return (
     <div>
         <CardSkeleton cardTitle='Additional Questions'>
+
             <div className='EditQuestion'>
                 <p className='headInfo'>Paragraph</p>
                 <div className='editItem'>
@@ -50,6 +51,7 @@ const AdditionalQuestions = () => {
                     <SlPencil/>
                 </div>
             </div>
+
         </CardSkeleton>
     </div>
   )

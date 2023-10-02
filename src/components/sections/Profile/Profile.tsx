@@ -1,4 +1,3 @@
-import React from 'react'
 import CardSkeleton from '../../molecules/card/card'
 import { Switch } from 'antd';
 import { Checkbox } from 'antd';

@@ -1,11 +1,9 @@
-import * as fs from 'fs';
-import * as yaml from 'js-yaml';
+
 import CardSkeleton from '../../molecules/card/card'
 import { Switch } from 'antd';
 import { Checkbox } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import "../PersonalInfo/PersonalInfo.css"
-import axios from 'axios';
 import { useState } from 'react';
 
 

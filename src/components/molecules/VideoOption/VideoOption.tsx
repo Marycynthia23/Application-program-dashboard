@@ -1,4 +1,3 @@
-import React from 'react'
 import "../VideoOption/VideoOption.css"
 const VideoOption = () => {
   return (

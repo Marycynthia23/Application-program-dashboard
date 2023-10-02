@@ -1,4 +1,3 @@
-import React from 'react'
 import "../SideBar/SideBar.css"
 import { GiHamburgerMenu } from 'react-icons/gi';
 import home from "../assets/homeicon.png"

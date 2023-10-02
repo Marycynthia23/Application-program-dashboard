@@ -1,18 +1,11 @@
-import React,{useState} from 'react'
-import { Card } from 'antd';
+import {useState} from 'react'
 import CardSkeleton from '../../molecules/card/card';
-import {titleData} from "../../molecules/card/card"
-import { LoadingOutlined, UploadOutlined } from '@ant-design/icons';
-import { message} from 'antd';
 import { AiOutlineUpload } from 'react-icons/ai';
-import type { RcFile } from 'antd/es/upload/interface';
 import "../Upload/Upload.css"
 import {PiTrashSimpleFill} from 'react-icons/pi';
 
 const UploadCard = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState<string>();
 
   const handleDeleteFile = ()=>{
     if(selectedImage){
@@ -29,29 +22,29 @@ const UploadCard = () => {
       reader.readAsDataURL(file);
     }
   };
-  const beforeUpload = (file: RcFile) => {
-    const isJpgOrPng:boolean = file.type === 'image/jpeg' || file.type === 'image/png';
-    if (!isJpgOrPng) {
-      message.error('You can only upload JPG/PNG file!');
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-      message.error('Image must smaller than 2MB!');
-    }
-    return isJpgOrPng && isLt2M;
-  };
+  // const beforeUpload = (file: RcFile) => {
+  //   const isJpgOrPng:boolean = file.type === 'image/jpeg' || file.type === 'image/png';
+  //   if (!isJpgOrPng) {
+  //     message.error('You can only upload JPG/PNG file!');
+  //   }
+  //   const isLt2M = file.size / 1024 / 1024 < 2;
+  //   if (!isLt2M) {
+  //     message.error('Image must smaller than 2MB!');
+  //   }
+  //   return isJpgOrPng && isLt2M;
+  // };
 
-  const uploadButton = (
-    <div>
-      {loading ? <LoadingOutlined /> : <UploadOutlined />}
-      <div style={{ marginTop: 8 }}>Upload</div>
-    </div>
-  );
+  // const uploadButton = (
+  //   <div>
+  //     {loading ? <LoadingOutlined /> : <UploadOutlined />}
+  //     <div style={{ marginTop: 8 }}>Upload</div>
+  //   </div>
+  // );
   return (
     <div>
     <CardSkeleton cardTitle='Upload Cover Image'>
-      <div className="upload">
-        <div className="uploadedImg">
+      <div className='upload'>
+        <div className='uploadedImg'>
            {selectedImage && <img src={selectedImage} width="40%"  alt="Preview Image" />}
         </div>
         <AiOutlineUpload/>

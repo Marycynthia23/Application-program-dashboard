@@ -6,7 +6,7 @@ import VideoOption from '../VideoOption/VideoOption';
 
 
 interface ICard {
-    children: string | JSX.Element
+    children: React.ReactNode
     cardTitle: string;
 }
 const CardSkeleton = ({
