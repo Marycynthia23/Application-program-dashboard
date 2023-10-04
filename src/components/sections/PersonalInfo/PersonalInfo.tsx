@@ -5,6 +5,7 @@ import { Checkbox } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import "../PersonalInfo/PersonalInfo.css"
 import { useState } from 'react';
+// import {getData} from '../../../../api';
 
 
 
@@ -24,7 +25,8 @@ const PersonalInfo = () => {
 }
 
 
-
+// const data =  getData();
+// console.log(data)
 
   return (
     <div>

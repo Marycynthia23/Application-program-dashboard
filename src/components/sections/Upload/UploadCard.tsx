@@ -1,11 +1,42 @@
-import {useState} from 'react'
-import CardSkeleton from '../../molecules/card/card';
+import {useState, useEffect} from 'react'
 import { AiOutlineUpload } from 'react-icons/ai';
 import "../Upload/Upload.css"
 import {PiTrashSimpleFill} from 'react-icons/pi';
+import axios from "axios";
+
+
+// interface IUploadCard{
+//   imgUrl: string | null;
+// }
+
 
 const UploadCard = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  // const [showImage, setShowImage] = useState<boolean>(true);
+  // const [showDefaultImg, setShowDefaultImg] = useState<boolean>(false);
+
+  // const uploadTransition = `${showImage ? 'color' : 'red'} ${showDefaultImg ? 'color' : 'blue'}`;
+  useEffect(() => {
+    const data:any = getData();
+    console.log(data)
+  }, [])
+  const getData = async() => {
+    try{
+      const config = {
+        headers: {
+          'Content-Type': 'application/json', 
+          'Accept': '*/*'
+
+        },
+      };
+      const response = await axios.get('http://127.0.0.1:4010/api/166.705347729385/programs/nesciunt/application-form', config);
+      console.log(response.data)
+      return response.data;
+    } catch (error) {
+      console.error('Error creating post:', error);
+      }
+    };
+  
 
   const handleDeleteFile = ()=>{
     if(selectedImage){
@@ -22,30 +53,15 @@ const UploadCard = () => {
       reader.readAsDataURL(file);
     }
   };
-  // const beforeUpload = (file: RcFile) => {
-  //   const isJpgOrPng:boolean = file.type === 'image/jpeg' || file.type === 'image/png';
-  //   if (!isJpgOrPng) {
-  //     message.error('You can only upload JPG/PNG file!');
-  //   }
-  //   const isLt2M = file.size / 1024 / 1024 < 2;
-  //   if (!isLt2M) {
-  //     message.error('Image must smaller than 2MB!');
-  //   }
-  //   return isJpgOrPng && isLt2M;
-  // };
 
-  // const uploadButton = (
-  //   <div>
-  //     {loading ? <LoadingOutlined /> : <UploadOutlined />}
-  //     <div style={{ marginTop: 8 }}>Upload</div>
-  //   </div>
-  // );
   return (
     <div>
-    <CardSkeleton cardTitle='Upload Cover Image'>
-      <div className='upload'>
+      <div className='card'>
+      <div className='title'>Upload Cover Image</div>
+      <div className='cardBody'>
+      <div className='upload' >
         <div className='uploadedImg'>
-           {selectedImage && <img src={selectedImage} width="40%"  alt="Preview Image" />}
+           {selectedImage && <img src={selectedImage} width="50%"  alt="Preview Image" />}
         </div>
         <AiOutlineUpload/>
         <input type="file"
@@ -56,7 +72,8 @@ const UploadCard = () => {
         <p>16:9 ratio is recommended. Max image size 1mb</p>
       </div>
       <button className="deleteFile" onClick={handleDeleteFile} disabled={selectedImage === null}><PiTrashSimpleFill/> Delete</button>
-    </CardSkeleton>
+      </div>
+    </div>
     </div>
   )
 }

@@ -93,3 +93,67 @@ padding: 10px 20px;
         flex-direction: column;
         
     }
+    .EditQuestion{
+        border-bottom: 1px solid #c4c4c4;
+    }
+    .headInfo{
+     color: #979797;
+     margin-bottom: 0;
+    }
+    .editText{
+        font-weight: 600;
+        font-size: 20px;
+    
+    }
+    .editItem{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0;
+    
+    }
+    .inputCont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    }
+    label{
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 1rem;
+    }
+    .inputQues{
+        width: 509px;
+        height: 48px;
+        margin: 0.75rem 0;
+        padding: 0 10px;
+        border-radius: 5px;
+    }
+    .Choice{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .Choicelabel{
+        font-weight: 400;
+    }
+    .inputChoice{
+        width: 420px;
+        height: 48px;
+        margin: 0.75rem 0;
+        padding: 0 10px;
+        border-radius: 5px;
+    }
+    .DelQuestionBtn{
+        display: flex;
+        /* justify-content: center; */
+        align-self: center;
+        column-gap: 8px;
+        padding: 1rem 0;
+        color: #A80000;
+    }
+    .DelText{
+        font-size: 15px;
+        font-weight: 600;
+
+    }

@@ -17,3 +17,8 @@ p{
 .deleteFile:hover{
     color: #A80000;
 }
+
+.hideImgText{
+    display: flex;
+    background-color: #A80000;
+}

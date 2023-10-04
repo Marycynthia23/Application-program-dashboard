@@ -1,9 +1,21 @@
-const fs = require("fs");
-const YAML = require("js-yaml")
+// import axios from "axios";
 
-//load the YAML
-const raw = fs.readFileSync("ApplicationForm.yaml");
-const data = YAML.safeLoad(raw);
+// export const getData = async() => {
+//     try{
+//       const response = await axios.get('http://127.0.0.1:4010/api/150.15576937441534/programs/repellendus/application-form');
+//       console.log(response.data)
+//       return response.data;
+//     } catch (error) {
+//       console.error('Error creating post:', error);
+//       }
+//     };
 
-//show the YAML
-console.log(data);
+// export const updateData = async() => {
+//     try{
+//       const response = await axios.put('http://127.0.0.1:4010/api/137.3896663569807/programs/distinctio/application-form');
+//       console.log(response.data)
+//       return response.data;
+//     } catch (error) {
+//       console.error('Error creating post:', error);
+//       }
+//     };
