@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import CardSkeleton from '../../molecules/card/card'
 import { Switch } from 'antd';
 import { Checkbox } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+// import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import "../Profile/Profile.css"
 import axios from 'axios';
 
@@ -34,61 +34,62 @@ interface Profile {
 
 
 const Profile = () => {
-  const [profile, setProfile] = useState({})
+  const [profile, setProfile] = useState<any>({})
   const [showEducation, setShowEducation] = useState(false)
   const [showExperience, setShowExperience] = useState(false)
   const [showResume, setShowResume] = useState(false)
   const [education, setEducation] = useState(false)
-  // const [experience, setExperience] = useState(false)
+  const [experience, setExperience] = useState(false)
+  const [resume, setResume] = useState(false)
+  // const [checkEducation, setCheckEducation] = useState(false)
 
- 
+ var profiledetails :any
+//  var checkEducation: boolean =false
 
 useEffect(() => {
-  const data:any = getData();
-    console.log(data)
+  const getData = async() => ( 
     
-    // setEducation(profile?.data?.profile?.education?.mandatory)
+    await axios.get('http://127.0.0.1:4010/api/385.83489307014327/programs/quo/application-form')
+    .then((response:any)=>{
+     // console.log(response.data?.data.attributes.profile)
+      profiledetails =response.data?.data.attributes.profile
+     
+     setProfile(profiledetails)
+    setEducation(profiledetails.education)
+    setExperience(profiledetails.experience)
+    setResume(profiledetails.resume)
+    setEducation(!education)
+    setShowEducation(!showEducation)
+    setShowExperience(!showExperience)
+    setShowResume(!showResume)
+    setExperience(!showExperience)
+    setResume(!setResume)
+   // checkEducation =profile.education?.mandatory
+    })
+
+)
+ getData()
+
 }, [])
-
-
-  const getData = async() => {
-    try{
-      const config = {
-        headers: {
-          // Add your headers here
-          'Content-Type': 'application/json', 
-          'Accept': '*/*'
-
-        },
-      };
-      const response = await axios.get('http://127.0.0.1:4010/api/299.4850686487526/programs/aut/application-form', config);
-      console.log(response.data)
-      // return response.data;
-      setProfile(response.data);
-    } catch (error) {
-      console.error('Error creating post:', error);
-      }
-    };
 
 const onChange = (checked: boolean) => {
     console.log(`switch to ${checked}`);
   };
-  const onChangeCheckboxEdu = (e: CheckboxChangeEvent) => {
-    console.log(`checked = ${e.target.checked}`);
-    setEducation(!education)
+  const onChangeCheckboxEdu = () => {
+  //  console.log(`checked = ${e.target.checked}`);
+  //checkEducation = e.target.checked ==profile.education?.mandatory
+   setEducation(!education)
+  
 
   };
-   const onChangeCheckboxExp = (e: CheckboxChangeEvent) => {
-    console.log(`checked = ${e.target.checked}`);
-    // setEducation(!education)
+   const onChangeCheckboxExp = () => {
+    setExperience(!experience)
 
   };
-  const onChangeCheckboxResume = (e: CheckboxChangeEvent) => {
-    console.log(`checked = ${e.target.checked}`);
-    // setEducation(!education)
+  const onChangeCheckboxResume = () => {
+    setResume(!resume)
 
   };
-  // console.log(education)
 const handleShowEdu = () => {
   setShowEducation(!showEducation)
 }
@@ -98,7 +99,6 @@ const handleShowExp = () => {
 const handleShowResume = () => {
   setShowResume(!showResume)
 }
-// console.log(profile?.data?.id)
   return (
     <div>
         <CardSkeleton cardTitle='Profile'>
@@ -106,29 +106,28 @@ const handleShowResume = () => {
           <>
           <div className='threefields' >
                 <p>Education</p>
-                <Checkbox onChange={onChangeCheckboxEdu} className='width'>Mandatory</Checkbox>
+                <Checkbox checked={education ==profile.education?.mandatory} onChange={onChangeCheckboxEdu} className='width'>Mandatory</Checkbox>
                 <div className='switch'>
-                <Switch defaultChecked onChange={onChange} onClick={handleShowEdu}/>
+                <Switch checked={showEducation ==profile.education?.show}  onChange={onChange} onClick={handleShowEdu}/>
                 <span>{showEducation ? 'Hide' : 'Show'}</span>
                 </div>
             </div>
           </>
         )}
-              
            
              <div className='threefields'>
                 <p>Experience</p>
-                <Checkbox onChange={onChangeCheckboxExp} className='width'>Internal</Checkbox>
+                <Checkbox checked={experience ==profile.experience?.mandatory} onChange={onChangeCheckboxExp} className='width'>Internal</Checkbox>
                 <div className='switch'>
-                <Switch defaultChecked onChange={onChange} onClick={handleShowExp}/>
+                <Switch defaultChecked checked={showExperience ==profile.experience?.show} onChange={onChange} onClick={handleShowExp}/>
                 <span>{showExperience ? 'Hide' : 'Show'}</span>
                 </div>
             </div>
             <div className='threefields'>
                 <p>Resume</p>
-                <Checkbox onChange={onChangeCheckboxResume} className='width'>Internal</Checkbox>
+                <Checkbox checked={resume ==profile.resume?.mandatory} onChange={onChangeCheckboxResume} className='width'>Internal</Checkbox>
                 <div className='switch'>
-                <Switch defaultChecked onChange={onChange} onClick={handleShowResume}/>
+                <Switch defaultChecked checked={showResume ==profile.resume?.show} onChange={onChange} onClick={handleShowResume}/>
                 <span>{showResume ? 'Hide' : 'Show'}</span>
                 </div>
             </div> 
